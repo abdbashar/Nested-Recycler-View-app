@@ -43,8 +43,7 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> implements 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.tvTitle.setText(myData.get(position).getTitle());
-        //設置巢狀RecyclerView
-        holder.recyclerView.setAdapter(new NestedAdapter(myData.get(position).getNesData()
+         holder.recyclerView.setAdapter(new NestedAdapter(myData.get(position).getNesData()
                 ,position,this));
         holder.recyclerView.setRecycledViewPool(viewPool);
 
@@ -54,8 +53,7 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> implements 
     public int getItemCount() {
         return myData.size();
     }
-    /**此處為點選Child-Item後從
-     * @see NestedAdapter 的回傳*/
+    
 
     @Override
     public void onChildClick(MyData.NestedData data, int parentPosition) {
